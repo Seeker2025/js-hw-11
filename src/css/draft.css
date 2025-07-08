@@ -1,0 +1,19 @@
+body{
+    background-color: rgb(128, 128, 128);
+}
+
+form{
+     background-color: silver;
+}
+
+input{
+    background-color: rgb(118, 69, 69);
+    height: 25px;
+}
+ul.gallery{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: rgb(113, 52, 17);
+
+}
