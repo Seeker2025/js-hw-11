@@ -1,3 +1,5 @@
+
+
 import axios from 'axios';
 import {getImagesByQuery} from './js/pixabay-api.js'
 import {createGallery} from './js/render-functions.js'
@@ -22,6 +24,9 @@ function inForm(event){
     })
     console.log(isObj.search);
     console.log(typeof(isObj.search));
+    //  if(isObj.search === ''){
+    //     console.log('Hi!');
+    // }
 
     getImagesByQuery(isObj.search);
 }

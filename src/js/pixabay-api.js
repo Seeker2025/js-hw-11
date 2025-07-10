@@ -1,6 +1,11 @@
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
+
 import axios from 'axios';
 const gallery = document.querySelector('.gallery');
-import {createGallery} from './render-functions.js'
+import { createGallery } from './render-functions.js'
+
+// console.log(lightbox);
 
 const myApiKey = '51186890-e1c8ef6e5ef4b08950db17a2f';
 
@@ -20,9 +25,20 @@ export function getImagesByQuery(query){
         safesearch: true,
         }
  }).then(response =>{
+   
     console.log(response.data.hits);
     
-    gallery.insertAdjacentHTML('beforeend', createGallery(response.data.hits));
- })
+   createGallery(response.data.hits);
+   const lightbox = new SimpleLightbox('li.gallery_item a', {
+    
+            captionsData: 'alt',    
+            captionDelay: 200,    
+            animationSpeed: 250,    
+            scaleImageToRatio: true,
+
+ 
+   });
+         })
 	      .catch(error => console.log(error));
 }
+
