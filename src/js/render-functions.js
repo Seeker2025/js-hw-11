@@ -41,13 +41,13 @@ export function createGallery(images){
     
 }
 
- export const lightbox = new SimpleLightbox('li.gallery_item a', {
-     captionsData: 'alt',    
-     captionDelay: 200,    
-     animationSpeed: 250,    
-     scaleImageToRatio: true,
+//  export const lightbox = new SimpleLightbox('li.gallery_item a', {
+//      captionsData: 'alt',    
+//      captionDelay: 200,    
+//      animationSpeed: 250,    
+//      scaleImageToRatio: true,
 
- });
+//  });
 
 
 
@@ -55,8 +55,8 @@ export function createGallery(images){
 
 
 
-function clearGallery(){
-
+export function clearGallery(){
+    gallery.innerHTML = '';
 }
 
 function showLoader(){

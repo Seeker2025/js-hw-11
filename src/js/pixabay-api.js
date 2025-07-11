@@ -1,8 +1,16 @@
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
+import iziToast from "izitoast";
+import "izitoast/dist/css/iziToast.min.css";
+
 import axios from 'axios';
 const gallery = document.querySelector('.gallery');
+const loader = document.querySelector('.box');
+
+
+
+
 import { createGallery } from './render-functions.js'
 
 // console.log(lightbox);
@@ -27,6 +35,21 @@ export function getImagesByQuery(query){
  }).then(response =>{
    
     console.log(response.data.hits);
+    console.log(response.data.hits.length);
+    if(!response.data.hits.length){
+            iziToast.show({
+        title: 'Sorry',
+        message: 'There are no images matching your search query. Please try again!',
+        titleColor: '#fff',
+        messageColor: '#fff',
+        color: '#de641a', // blue, red, green, yellow
+        position: 'topRight', // bottomRight, bottomLeft, topRight, topLeft, topCenter, bottomCenter, center
+});
+    }
+    if(response.data){
+        loader.style.visibility = 'hidden';
+    }
+    
     
    createGallery(response.data.hits);
    const lightbox = new SimpleLightbox('li.gallery_item a', {
@@ -36,7 +59,6 @@ export function getImagesByQuery(query){
             animationSpeed: 250,    
             scaleImageToRatio: true,
 
- 
    });
          })
 	      .catch(error => console.log(error));

@@ -1,10 +1,12 @@
-
-
 import axios from 'axios';
 import {getImagesByQuery} from './js/pixabay-api.js'
-import {createGallery} from './js/render-functions.js'
+import {createGallery, clearGallery} from './js/render-functions.js'
+
+import iziToast from "izitoast";
+import "izitoast/dist/css/iziToast.min.css";
 
 const form = document.querySelector('.js_form');
+const loader = document.querySelector('.box');
 // console.log(form);
 
 const isObj = {};
@@ -13,6 +15,8 @@ form.addEventListener('submit', inForm);
 
 function inForm(event){
     event.preventDefault();
+    
+    clearGallery();
     
     const formData = new FormData(event.currentTarget);
 
@@ -24,10 +28,22 @@ function inForm(event){
     })
     console.log(isObj.search);
     console.log(typeof(isObj.search));
-    //  if(isObj.search === ''){
-    //     console.log('Hi!');
-    // }
+     if(isObj.search === ''){
+        // console.log('Hi!');
+    
+        iziToast.show({
+            title: 'Hey',
+            message: 'Enter any word!',
+            titleColor: '#fff',
+            messageColor: '#fff',
+            color: '#b22702', // blue, red, green, yellow
+            position: 'topRight', // bottomRight, bottomLeft, topLeft, topCenter, bottomCenter, center
+        });
+    return;
 
+    }
+    loader.style.visibility = 'visible';
     getImagesByQuery(isObj.search);
+    form.reset();
 }
 
