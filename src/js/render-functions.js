@@ -2,6 +2,7 @@ import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
 const gallery = document.querySelector('.gallery');
+const loader = document.querySelector('.box');
 
 // console.log(cont);
  //     <li class="li_itm"><img src="${itm.userImageURL}" alt=""></li>
@@ -49,20 +50,14 @@ export function createGallery(images){
 
 //  });
 
-
-
-  
-
-
-
 export function clearGallery(){
     gallery.innerHTML = '';
 }
 
-function showLoader(){
-
+export function showLoader(){
+   loader.style.visibility = 'visible';
 }
 
-function hideLoader(){
-
+export function hideLoader(){
+   loader.style.visibility = 'hidden';
 }

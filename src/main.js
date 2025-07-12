@@ -1,12 +1,12 @@
 import axios from 'axios';
 import {getImagesByQuery} from './js/pixabay-api.js'
-import {createGallery, clearGallery} from './js/render-functions.js'
+import {createGallery, clearGallery, showLoader} from './js/render-functions.js'
 
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 
 const form = document.querySelector('.js_form');
-const loader = document.querySelector('.box');
+// const loader = document.querySelector('.box');
 // console.log(form);
 
 const isObj = {};
@@ -42,7 +42,7 @@ function inForm(event){
     return;
 
     }
-    loader.style.visibility = 'visible';
+    showLoader();
     getImagesByQuery(isObj.search);
     form.reset();
 }

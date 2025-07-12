@@ -6,12 +6,12 @@ import "izitoast/dist/css/iziToast.min.css";
 
 import axios from 'axios';
 const gallery = document.querySelector('.gallery');
-const loader = document.querySelector('.box');
 
 
 
 
-import { createGallery } from './render-functions.js'
+
+import { createGallery, hideLoader } from './render-functions.js'
 
 // console.log(lightbox);
 
@@ -47,7 +47,7 @@ export function getImagesByQuery(query){
 });
     }
     if(response.data){
-        loader.style.visibility = 'hidden';
+            hideLoader();
     }
     
     
