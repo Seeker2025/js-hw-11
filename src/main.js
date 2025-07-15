@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {getImagesByQuery} from './js/pixabay-api.js'
+import {getImagesByQuery } from './js/pixabay-api.js'
 import {createGallery, clearGallery, showLoader} from './js/render-functions.js'
 
 import iziToast from "izitoast";
@@ -11,6 +11,7 @@ const form = document.querySelector('.js_form');
 
 const isObj = {};
 
+
 form.addEventListener('submit', inForm);
 
 function inForm(event){
@@ -19,8 +20,8 @@ function inForm(event){
     clearGallery();
     
     const formData = new FormData(event.currentTarget);
-
-    formData.forEach((value, name)=>{
+    
+        formData.forEach((value, name)=>{
         // console.log('value', value);
         // console.log('name', name);
         isObj[name] = value;

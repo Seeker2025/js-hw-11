@@ -38,7 +38,7 @@ export function createGallery(images){
      </li>   
         `
      ).join('');
-     return  gallery.insertAdjacentHTML('beforeend', arr);
+     gallery.insertAdjacentHTML('beforeend', arr);
     
 }
 
