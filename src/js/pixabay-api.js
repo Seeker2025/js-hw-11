@@ -7,7 +7,7 @@ import "izitoast/dist/css/iziToast.min.css";
 import axios from 'axios';
 const gallery = document.querySelector('.gallery');
 const BASE_URL ='https://pixabay.com/api';
-let myPage = 1;
+
 
 import { createGallery, hideLoader } from './render-functions.js'
 
@@ -29,7 +29,7 @@ export function getImagesByQuery(query){
         image_type: 'photo',
         orientation: 'horizontal',
         safesearch: true,
-        page: myPage,
+        // page: myPage,
         per_page: 40,
         }
  }).then(response =>{
@@ -52,8 +52,7 @@ export function getImagesByQuery(query){
     
     
    createGallery(response.data.hits);
-   myPage =+ 1;
-   console.log('myPage', myPage);
+  
    const lightbox = new SimpleLightbox('li.gallery_item a', {
     
             captionsData: 'alt',    
