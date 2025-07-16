@@ -6,7 +6,7 @@ import "izitoast/dist/css/iziToast.min.css";
 
 import axios from 'axios';
 const gallery = document.querySelector('.gallery');
-const BASE_URL ='https://pixabay.com/api';
+const BASE_URL ='https://pixabay.com/api/';
 
 
 import { createGallery, hideLoader } from './render-functions.js'
@@ -30,7 +30,7 @@ export function getImagesByQuery(query){
         orientation: 'horizontal',
         safesearch: true,
         // page: myPage,
-        per_page: 40,
+        // per_page: 40,
         }
  }).then(response =>{
    
