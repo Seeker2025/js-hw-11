@@ -34,8 +34,8 @@ export function getImagesByQuery(query){
         }
  }).then(response =>{
    
-    console.log(response.data.hits);
-    console.log(response.data.hits.length);
+    // console.log(response.data.hits);
+    // console.log(response.data.hits.length);
     if(!response.data.hits.length){
             iziToast.show({
         title: 'Sorry',
